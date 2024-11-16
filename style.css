@@ -1,25 +1,22 @@
-/* default css  */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* color: #ffffff; */
   font-family: "PT Sans", sans-serif;
   text-decoration: none;
   list-style: none;
-
-  /* border: 1px solid red; */
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; /* Base font size for rem units */
 }
+
 img {
   border-radius: 3px;
 }
 
-/* pattern  */
-
+/* Background Pattern */
 .container-1 {
   width: 100%;
   height: 100%;
@@ -70,30 +67,30 @@ img {
   background-size: 40px 60px;
 }
 
-/* head div  */
+/* Head Div */
 .head-div {
   text-align: center;
-  /* width: 100%; */
   border-radius: 50px;
-  min-height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 110px;
-  margin-bottom: 50px;
+  margin: 5rem auto 3rem auto;
   background-color: #ffffff;
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 90%;
+  max-width: 600px;
+  padding: 2rem;
 }
+
 .head {
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 2.5rem); /* Dynamically scales text size */
   font-family: "Delius Swash Caps", cursive;
 }
+
 .changeHead {
   font-family: "Delius Swash Caps", cursive;
   text-align: center;
 }
+
 .change {
   width: 30%;
   display: block;
@@ -103,43 +100,48 @@ img {
   border-radius: 20px;
 }
 
-/* input and button  */
+/* Input and Button */
 .input-group {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100px;
-  border-radius: 40px;
   background-color: #ffffff;
-  margin-bottom: 20px;
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
+  border-radius: 40px;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 600px;
+}
+
+.input,
+.button--submit {
+  height: 4rem; /* Consistent height */
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  border: none;
 }
 
 .input {
-  min-height: 40px;
-
-  width: 60%;
-  padding: 0 1rem;
-  text-align: center;
-  font-size: 15px;
+  flex: 1;
+  padding: 0 1.5rem;
   border: 1px solid #fb1;
   border-radius: 20px 0 0 20px;
   background-color: transparent;
+  text-align: center;
+  transition: border-color 0.3s ease-in-out;
 }
-.input:hover {
+
+.input:hover,
+.input:focus {
+  border-color: #b71;
+  outline: none;
   cursor: pointer;
 }
 
 .button--submit {
-  min-height: 40px;
-  padding: 0.5em 1em;
-  border: none;
-  border-radius: 0 6px 6px 0;
+  flex-basis: auto;
+  padding: 0 2rem;
+  border-radius: 0 20px 20px 0;
   background-color: #fb1;
   color: #fff;
-  font-size: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
@@ -148,8 +150,30 @@ img {
   background-color: #b71;
 }
 
-.input:focus,
-.input:focus-visible {
-  border-color: #fb1;
-  outline: none;
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .head {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+  }
+
+  .input-group {
+    width: 95%;
+  }
+
+  .input,
+  .button--submit {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .head {
+    font-size: clamp(1.6rem, 3.5vw, 2rem);
+  }
+
+  .input,
+  .button--submit {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
 }
